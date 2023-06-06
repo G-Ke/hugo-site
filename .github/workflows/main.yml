@@ -1,0 +1,39 @@
+name: Build and Deploy My Personal Site
+
+on:
+  push:
+    branches: [ "main" ]
+  workflow_dispatch:
+
+jobs:
+  build_and_deploy:
+    runs-on: ubuntu-latest
+    permissions:
+      id-token: write
+      contents: read
+
+    steps:
+      - name: Checkout Repo
+        uses: actions/checkout@v3
+
+      - name: Setup Hugo
+        uses: peaceiris/actions-hugo@v2
+        with:
+          hugo-version: 'latest'
+          extended: true
+
+      - name: Building Hugo
+        run: hugo --minify
+
+      - name: Configure AWS Credentials
+        uses: aws-actions/configure-aws-credentials@v2
+        with:
+          aws-region: us-east-1
+          role-to-assume: ${{secrets.AWS_ROLE_TO_ASSUME}}
+          role-session-name: MyHugoSiteDeploySession
+
+      - name: Push to S3 and Invalidate CloudFront Cache
+        run: |
+          aws s3 sync ./public s3://${{secrets.S3_BUCKET_NAME}} --delete --only-show-errors
+          aws cloudfront create-invalidation --distribution-id ${{ secrets.CLOUDFRONTDISTRIBUTIONID }} --paths "/*"
+

@@ -1,0 +1,25 @@
+{{ $avatar_img := .Site.Params.author.avatar }}
+{{ $avatar_img_alt := .Site.Params.author.name }}
+{{ $image := resources.Get $avatar_img }}
+{{ $location_avatar := .Site.Params.author.location_avatar }}
+{{ $location_image := resources.Get $location_avatar }}
+<div class="author">
+    {{ with $image }}
+    {{ $image := $image.Fill "100x100 webp" }}
+    <img class="author-avatar" src="{{ $image.RelPermalink }}" alt="{{ $avatar_img_alt }}" width="{{ .Width }}"
+        height="{{ .Height }}" />
+    {{ end }}
+    <h2 class="author-name">{{ .Site.Params.author.intro }}</h2>
+    <div class="location-name">
+        <p>
+            <svg xmlns="http://www.w3.org/2000/svg" class="location-icon logo" width="17" height="17" viewBox="0 0 64 64">
+                <path d="M32 5a21 21 0 0 0-21 21c0 17 21 33 21 33s21-16 21-33A21 21 0 0 0 32 5zm7 20v10h-5v-5a2 2 0 0 0-2-2 2 2 0 0 0-2 2v5h-5V25h-4l11-9 11 9z" data-name="home location"/>
+            </svg> 
+            {{ .Site.Params.author.location }}
+        </p>
+        <p class="logo">
+            {{ partial "svgs/location.svg" (dict "height" 25 "width" 25) . }}
+        </p>
+    </div>
+    <p class="author-bio">{{ .Site.Params.author.description }}</p>
+</div>

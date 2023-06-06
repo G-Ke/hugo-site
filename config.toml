@@ -1,0 +1,42 @@
+baseURL = '/'
+languageCode = 'en-us'
+title = "George Kenneally"
+theme = 'hugo-blog-awesome'
+defaultcontentlanguage = 'en'
+paginate = '10'
+relativeURLs = true
+canonifyurls = true
+uglyURLs = true
+enableEmoji = true
+
+[menu]
+  [[menu.main]]
+    pageRef="posts"
+    name = 'Posts'
+    url = '/posts/'
+    weight = 20
+  [[menu.main]]
+    pageRef="about"
+    name = 'About'
+    url = '/about/'
+    weight = 30
+
+[params]
+  sitename = "GK"
+  defaultColor = "dark"
+  description = "Welcome to my personal site."
+  mainSections = ['about', 'posts']
+  toc = false
+  goToTop = true
+
+[params.author]
+  avatar = "GKavatar.png"
+  intro = "George Kenneally"
+  name = "GK"
+  location = "Boston, MA"
+  location_avatar = "location.svg"
+  description = "By day I am a customer experience professional with time in a variety of customer facing roles for SaaS companies and non-profit organizations. I've had the opportunity to take on traditional customer support roles, as well as more technical challenges working on implementations and enablement. In my free time I have been enjoying continuing my cybersecurity studies and working on a few side projects that I hope to write about here."
+
+[[params.socialIcons]]
+  name = "github"
+  url = "https://github.com/g-ke"
