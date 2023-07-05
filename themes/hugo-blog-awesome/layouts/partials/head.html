@@ -11,7 +11,7 @@
     {{- end }}
 
     {{- /* Styles */ -}}
-
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
     {{- $style := resources.Get "sass/main.scss" | resources.ExecuteAsTemplate "style.scss" . | toCSS (dict "targetPath" "style.css") | minify | fingerprint }}
     <link href="{{ $style.RelPermalink }}" rel="stylesheet">
     {{- $code_syntax_highlight_css := resources.Get "code-highlight.css" | minify | fingerprint }}
@@ -23,7 +23,7 @@
     <link rel="icon" type="image/png" sizes="16x16" href="{{ (resources.Get "icons/favicon-16x16.png").RelPermalink }}">
     <link rel="mask-icon" href="{{ (resources.Get "icons/safari-pinned-tab.svg").RelPermalink }}">
     <link rel="shortcut icon" href="{{ (resources.Get "icons/favicon.ico" | resources.Copy "favicon.ico").RelPermalink }}">
-
+    
     {{- partial "webmanifest.html" . -}}
     {{- partial "browserconfig.html" . -}}
 

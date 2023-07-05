@@ -10,5 +10,9 @@
         height="{{ .Height }}" />
     {{ end }}
     <h2 class="author-name">{{ .Site.Params.author.intro }}</h2>
+    <div class="location">
+        <span class="material-symbols-outlined location">my_location</span>
+        <p class="location location-name">{{ .Site.Params.author.location }}</p>
+    </div>
     <p class="author-bio">{{ .Site.Params.author.description }}</p>
 </div>

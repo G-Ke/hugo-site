@@ -23,7 +23,7 @@
   }
 
   .author-name {
-    font-size: 1.9em;
+    font-size: 2.2em;
     margin-bottom: 2px;
   }
 
@@ -32,20 +32,38 @@
     margin: 0 auto;
     opacity: 0.9;
     max-width: 693px;
-    line-height: 1.688;
+    line-height: 1.788;
     text-align: center;
   }
 }
 
-.location-name {
-  opacity: 1;
+.material-symbols-outlined {
+  font-variation-settings:
+  'SIZE' 12,
+  'FILL' 1,
+  'wght' 300,
+  'GRAD' 200,
+  'opsz' 48
+}
+
+.location {
+  opacity: .9;
   text-align: center;
   display: inline-block;
+  vertical-align: middle;
+  padding-bottom: .5rem;
+}
+
+.location-name {
+  font-size: 13px;
+  vertical-align: middle;
+  line-height: 20px;
+  padding-left: .2rem;
 }
 
 .location-icon {
   fill: $gray;
-  margin: 3px;
+  margin: 1px;
 }
 
 // Content
