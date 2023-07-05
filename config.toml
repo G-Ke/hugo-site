@@ -32,7 +32,7 @@ enableEmoji = true
 [params.author]
   avatar = "nefarmhouse-mj.png"
   intro = "George Kenneally"
-  name = "GK"
+  name = "George Kenneally"
   location = "Boston, Massachusetts"
   location_avatar = "location.svg"
   description = "By day I am a customer experience professional with time in a variety of customer facing roles for SaaS companies and non-profit organizations. I've had the opportunity to contribute to traditional customer support teams, as well as in more technical roles working on implementations and enablement. In my free time I have been enjoying continuing my cybersecurity studies and working on a few side projects that I hope to write about here."
