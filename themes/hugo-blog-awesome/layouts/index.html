@@ -8,7 +8,10 @@
     <div class="wrapper">
         {{ partial "bio" . }}
         <main aria-label="Content">
-            <h3 class="posts-item-note" aria-label="Recent Posts">Recent Posts</h3>
+            <div class="location">
+                <span class="material-symbols-outlined location">markunread_mailbox</span>
+                <h3 class="posts-item-note location" aria-label="Recent Posts">Recent Posts</h3>
+            </div>
             {{/* Show last 5 posts in reverse date order */}}
             {{ $pagesToShow := where .Site.RegularPages "Type" "in" site.Params.mainSections }}
             {{ $posts := $pagesToShow.ByDate.Reverse }}

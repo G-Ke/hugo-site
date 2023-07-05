@@ -30,7 +30,7 @@ enableEmoji = true
   goToTop = true
 
 [params.author]
-  avatar = "GKavatar.png"
+  avatar = "nefarmhouse-mj.png"
   intro = "George Kenneally"
   name = "GK"
   location = "Boston, Massachusetts"
