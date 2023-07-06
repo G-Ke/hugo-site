@@ -7,13 +7,15 @@ This is a simple static site hosting my personal web page, built using [Hugo](ht
 
 ## OIDC AWS >< GitHub
 
+**Update June 27, 2023:** The GitHub OIDC Integration was broken by GitHub recently, causing all integrations to fail. The old thumbprint stopped working and an additional was added. See the [GitHub Blog](https://github.blog/changelog/2023-06-27-github-actions-update-on-oidc-integration-with-aws/) for more.
+
 Initially I had set this up to utilize GitHub Secrets to provide the build enviornment with my AWS IAM user access keys as environment variables. Despite this being a low stakes personal website, I decided to implement the best practice instead of the just good enough option. The recommended route is to configure an OIDC IdP in AWS IAM, and use IAM roles and short-lived credentials to authenticate, instead of those user access keys. This is achieved by setting up a trusted relationship between GitHub and AWS, using GitHub's OIDC provider as a federated identity. After configuration, I added the [aws-actions/configure-aws-credentials@v2](https://github.com/aws-actions/configure-aws-credentials) GitHub action to my main.yml, along with region, IAM role to assume, and session name.
 
 For more information on setting up OIDC and IAM Roles for GitHub Actions and AWS, checkout the resources below:
 
-- AWS | [Use IAM roles to connect GitHub Actions to actions in AWS](https://aws.amazon.com/blogs/security/use-iam-roles-to-connect-github-actions-to-actions-in-aws/)
-
 - GitHub | [Configuring OpenID Connect in Amazon Web Services](https://docs.github.com/en/actions/deployment/security-hardening-your-deployments/configuring-openid-connect-in-amazon-web-services)
+
+- AWS | [Use IAM roles to connect GitHub Actions to actions in AWS](https://aws.amazon.com/blogs/security/use-iam-roles-to-connect-github-actions-to-actions-in-aws/)
 
 - AWS | [aws-actions/configure-aws-credentials](https://github.com/aws-actions/configure-aws-credentials)
 
