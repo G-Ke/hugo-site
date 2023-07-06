@@ -3,26 +3,18 @@ title: "About"
 date: 2023-05-18T16:55:48-04:00
 draft: false
 ---
-# About this site
-Thanks for visiting my personal site. This is a project that I undertook to help learn about Hugo, get some more experience working with AWS, and most importantly to try out using OIDC to securely access AWS resources by creating a trusted relationship between AWS and my GitHub repo. I'll likely use the site to experiment with new things in the future.
+## About Me
 
-## Overview
-The site is built using Hugo. I use GitHub actions to build and deploy the site to AWS S3 as a static website. The S3 bucket is cached using AWS Cloudfront. Instead of using the built in `Hugo deploy` command I use OIDC to authorize and generate short-lived credentials to assume an IAM Role.Then I can use the AWS CLI to perform an `S3 sync --delete` and Cloudfront distribution invalidation.
+By day I am a customer experience professional with time in a variety of customer facing roles for SaaS companies and non-profit organizations. I've had the opportunity to contribute to traditional customer support teams, as well as in more technical roles working on implementations and enablement. In my free time I have been enjoying continuing my cybersecurity studies and working on a few side projects that I hope to write about here.
 
-## Hugo
-The site is made using an amazing SSG (static site generator) [Hugo](https://gohugo.io/) and the [hugo-blog-awesome](https://github.com/hugo-sid/hugo-blog-awesome) theme with some modifications. I chose Hugo because it seemed like a great way to host a simple static personal page and blog. I like using toml/yaml files for configuration and writing markdown for content instead of using a full CMS w/ UI like I might build with [Wagtail](https://wagtail.org/).
+I am constantly learning a new tool, software, or skill and I love sharing that knowledge with others. Two areas that interest me are Machine Learning (how can't you be expected with all this progress?) and Cybersecurity. I have embarked on some projects that will give me some hands on experience in ML, specifcally in the area of ops. I've also been studying for the CompTIA CySa+ certification. CySa+ is DoD 8570 IAT Level II2 approved and focuses on the skills needed to be a Cybersecurity Analyst.
 
-Working with Hugo was fairly straightforward. There was certainly a learning curve, and I still have a ton to learn, but being able to spin up a website was mostly drama free. I didn't make any major changes with Hugo aside from the theme and some accompanying styling changes. I may write a blog post about my process from start to finish, but there are already a lot of great resources on building a basic Hugo site.
+When I'm not working or studying you may find me spending time with family, playing an occasional video game, exploring a new city, going for a hike, reading a new book, or rollerblading around my neighborhood.
 
-## OIDC with GitHub and AWS
-One of the big things I changed since my first build of the site was to implement OIDC between GitHub and AWS. Most tutorials will show you how to deploy your site using your AWS IAM User Access Keys as secrets and providing them as enviornment variables. This is probably okay for most basic websites, but is not the best practice for accessing your AWS resources from a security perspective.
+## About this site
 
-The recommended route is to configure an OIDC IdP in AWS, and use IAM roles and short-lived credentials to authenticate, instead of user access keys. This is achieved by setting up a trusted relationship between GitHub and AWS, using GitHub's OIDC provider as a federated identity in AWS.
+I set out to replace my old site and after some looking I found Hugo. Hugo seemed like an obvious choice for a lightweight personal site. I've used heavier frameworks for my site in the past, but I always felt like it was overkill, even if it was helpful practice. So I chose the best tool for the job: a Static Site Generator like Hugo.
 
-For more information on setting up OIDC and IAM Roles for GitHub Actions and AWS, checkout the resources below:
+This is a simple static site hosting my personal web page, built using Hugo and hosted on AWS S3. It uses the hugo-blog-awesome theme by hugo-sid along with some styling modifications. It is built and deployed to S3 using GitHub actions, triggered by pushes to the repo. The GitHub Actions and some other notes used are listed below in the mentions.
 
-- AWS | [Use IAM roles to connect GitHub Actions to actions in AWS](https://aws.amazon.com/blogs/security/use-iam-roles-to-connect-github-actions-to-actions-in-aws/)
-- GitHub | [Configuring OpenID Connect in Amazon Web Services](https://docs.github.com/en/actions/deployment/security-hardening-your-deployments/configuring-openid-connect-in-amazon-web-services)
-- AWS | [aws-actions/configure-aws-credentials](https://github.com/aws-actions/configure-aws-credentials)
-- AWS | [Creating a role for web identity or OpenID Connect Federation](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_create_for-idp_oidc.html#idp_oidc_Create_GitHub)
-- AWS | [Creating OpenID Connect (OIDC) identity providers](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_providers_create_oidc.html)
+For more check out my post about the site [Welcome! Some notes about the site.](https://georgekenneally.com/posts/welcome).

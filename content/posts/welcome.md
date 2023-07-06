@@ -16,6 +16,7 @@ I set out to replace my old site and after some looking I found Hugo. Hugo seeme
 
 This is a simple static site hosting my personal web page, built using Hugo and hosted on AWS S3. It uses the hugo-blog-awesome theme by hugo-sid along with some styling modifications. It is built and deployed to S3 using GitHub actions, triggered by pushes to the repo. The GitHub Actions and some other notes used are listed below in the mentions.
 
+**GitHub Repo:** [G-Ke | hugo-site](https://github.com/G-Ke/hugo-site)
 
 ## GitHub Actions
 
